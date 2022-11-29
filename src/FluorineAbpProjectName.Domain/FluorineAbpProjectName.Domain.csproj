@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>FluorineAbpProjectName</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<!--<PackageReference Include="Volo.Abp.Emailing" Version="abpVersion" />-->
+	<!--<PackageReference Include="Volo.Abp.Identity.Domain" Version="abpVersion" />-->
+	<!--<PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="abpVersion" />-->
+	<PackageReference Include="Volo.Abp.BackgroundJobs.Domain" Version="abpVersion" />
+	<PackageReference Include="Volo.Abp.AuditLogging.Domain" Version="abpVersion" />
+	<PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="abpVersion" />
+	<!--<PackageReference Include="Volo.Abp.FeatureManagement.Domain" Version="abpVersion" />-->
+	<!--<PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="abpVersion" />-->
+	<!--<PackageReference Include="Volo.Abp.OpenIddict.Domain" Version="abpVersion" />-->
+	<!--<PackageReference Include="Volo.Abp.PermissionManagement.Domain.OpenIddict" Version="abpVersion" />-->
+  </ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\FluorineAbpProjectName.Domain.Shared\FluorineAbpProjectName.Domain.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+{
+  "symbolInfo": {
+    "abpVersion": {
+      "longName": "abpversion",
+      "shortName": "abpversion"
+    },
+	"dataBase": {
+      "longName": "dbms",
+      "shortName": "dbms"
+    },
+	"connectionString": {
+      "longName": "connection-string",
+      "shortName": "cs"
+    },
+	"distributedLocking": {
+      "longName": "distributed-locking",
+      "shortName": "dl"
+	}
+  }
+}

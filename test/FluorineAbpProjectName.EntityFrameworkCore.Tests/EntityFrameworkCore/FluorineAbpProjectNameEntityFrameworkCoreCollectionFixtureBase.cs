@@ -1,0 +1,9 @@
+﻿using FluorineAbpProjectName.EntityFrameworkCore;
+using Xunit;
+
+namespace FluorineAbpProjectName.EntityFrameworkCore;
+
+public class FluorineAbpProjectNameEntityFrameworkCoreCollectionFixtureBase : ICollectionFixture<FluorineAbpProjectNameEntityFrameworkCoreFixture>
+{
+
+}

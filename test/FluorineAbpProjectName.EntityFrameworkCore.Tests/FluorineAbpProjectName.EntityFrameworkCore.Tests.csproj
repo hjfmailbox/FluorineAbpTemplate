@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>FluorineAbpProjectName</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+	<PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="abpVersion" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\FluorineAbpProjectName.EntityFrameworkCore\FluorineAbpProjectName.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\FluorineAbpProjectName.TestBase\FluorineAbpProjectName.TestBase.csproj" />
+  </ItemGroup>
+
+</Project>

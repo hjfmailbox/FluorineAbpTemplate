@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>FluorineAbpProjectName</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<!--<PackageReference Include="Volo.Abp.Account.Application" Version="abpVersion" />-->
+	<!--<PackageReference Include="Volo.Abp.Identity.Application" Version="abpVersion" />-->
+	<!--<PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="abpVersion" />-->
+	<PackageReference Include="Volo.Abp.TenantManagement.Application" Version="abpVersion" />
+	<!--<PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="abpVersion" />-->
+	<!--<PackageReference Include="Volo.Abp.SettingManagement.Application" Version="abpVersion" />-->
+  </ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\FluorineAbpProjectName.Domain\FluorineAbpProjectName.Domain.csproj" />
+    <ProjectReference Include="..\FluorineAbpProjectName.Application.Contracts\FluorineAbpProjectName.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

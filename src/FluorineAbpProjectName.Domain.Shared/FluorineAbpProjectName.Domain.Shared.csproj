@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>FluorineAbpProjectName</RootNamespace>
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--<PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="abpVersion" />-->
+    <PackageReference Include="Volo.Abp.BackgroundJobs.Domain.Shared" Version="abpVersion" />
+    <PackageReference Include="Volo.Abp.AuditLogging.Domain.Shared" Version="abpVersion" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Domain.Shared" Version="abpVersion" />
+    <!--<PackageReference Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="abpVersion" />-->
+    <!--<PackageReference Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="abpVersion" />-->
+    <!--<PackageReference Include="Volo.Abp.SettingManagement.Domain.Shared" Version="abpVersion" />-->
+    <!--<PackageReference Include="Volo.Abp.OpenIddict.Domain.Shared" Version="abpVersion" />-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\FluorineAbpProjectName\*.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.0" />
+  </ItemGroup>
+
+</Project>

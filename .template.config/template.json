@@ -1,0 +1,88 @@
+{
+	"$schema": "http://json.schemastore.org/template",
+	"author": "Fluorine",
+	"classifications": ["Template"],
+	"name": "Fluorine Abp vNext Template",
+	"identity": "Fluorine.AbpvNext.Template",
+	"shortName": "fabp",
+	"tags": {
+		"language": "C#",
+		"type": "project"
+	},
+	"sourceName": "FluorineAbpProjectName",
+	"preferNameDirectory": true,
+	"symbols": {
+		"abpVersion": {
+			"type": "parameter",
+			"datatype": "text",
+			"defaultValue": "6.0.1",
+			"replaces": "abpVersion",
+			"description": "ABP vNext version"
+		},
+		"connectionString": {
+			"type": "parameter",
+			"datatype": "text",
+			"defaultValue": "",
+			"replaces": "connectionString",
+			"description": "Custom connection string"
+		},
+		"customConnectionString": {
+			"type": "computed",
+			"value": "(connectionString != \"\")"
+		},
+		"dataBase": {
+			"type": "parameter",
+			"datatype": "choice",
+			"defaultValue": "MySQL",
+			"replaces": "dataBase",
+			"choices": [{
+					"choice": "MySQL",
+					"description": "-MySQL"
+				},
+				{
+					"choice": "SqlServer",
+					"description": "-SqlServer"
+				}
+			],
+			"description": "Database type"
+		},
+		"sqlServer": {
+			"type": "computed",
+			"value": "(dataBase == \"SqlServer\" )"
+		},
+		"mySQL": {
+			"type": "computed",
+			"value": "(dataBase == \"MySQL\")"
+		},
+		"distributedLocking": {
+			"type": "parameter",
+			"datatype": "bool",
+			"defaultValue": "false",
+			"description": "Enable distributed locking or not"
+		},
+		"enableDistributedLocking": {
+			"type": "computed",
+			"value": "(distributedLocking)"
+		},
+	},
+	"sources": [{
+		"source": "./",
+		"target": "./",
+		"exclude": [
+			"**/src/**/[Bb]in/**",
+			"**/src/**/[Oo]bj/**",
+			"**/test/**/[Bb]in/**",
+			"**/test/**/[Oo]bj/**",
+			".template.config/**/*",
+			".vs/**/*",
+			"**/*.filelist",
+			"**/*.user",
+			"**/*.lock.json",
+			"**/.git/**",
+			"**/doc/**",
+			"**/README.md",
+			"*.nuspec",
+			"**/node_modules/**"
+		]
+	}]
+}

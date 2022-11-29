@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Fluorine.Abp.Template</id>
+    <version>1.0.3</version>
+    <description>
+      Creates a webapi app with abp vnext.
+    </description>
+    <authors>fluorine-hjf</authors>
+	<projectUrl>https://github.com/hjfmailbox/FluorineAbpTemplate</projectUrl>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+	<readme>README.md</readme>
+    <license type="expression">MIT</license>
+  </metadata>
+  <files>
+    <file src="README.md" target="\" />
+	<file src="doc\images\help.png" target="doc\images\help.png" />
+  </files>
+</package>
