@@ -6,7 +6,7 @@
 
 `dotnet new fabp -h`
 
-![help](doc/images/help.png)
+![help](https://raw.githubusercontent.com/hjfmailbox/FluorineAbpTemplate/main/doc/images/help.png)
 
 > examples
 
