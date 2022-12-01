@@ -7,47 +7,44 @@
     <RootNamespace>FluorineAbpProjectName</RootNamespace>
     <PreserveCompilationReferences>true</PreserveCompilationReferences>
     <UserSecretsId>FluorineAbpProjectName-4681b4fd-151f-4221-84a4-929d86723e4c</UserSecretsId>
-    <PackageId>Fluorine.Abp.Template</PackageId>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-    <Authors>fluorine</Authors>
-    <Title>Fluorine.Abp.Template</Title>
-    <Company />
-    <Product />
-    <Description>Creates a webapi app with abp vnext.</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
-	  <PrivateAssets>all</PrivateAssets>
-	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
     <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="6.0.11" />
-	<!--#if(enableDistributedLocking)-->
+  </ItemGroup>
+    
+  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+    <PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.DistributedLocking" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.Swashbuckle" Version="6.0.1" />
+  </ItemGroup>	
+  <ItemGroup Condition="'$(Configuration)' != 'Debug'">
+    <!--#if(enableDistributedLocking)-->
     <PackageReference Include="DistributedLock.Redis" Version="1.0.2" />
-	<!--#endif-->
-	<PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" Version="abpVersion" />
-	<PackageReference Include="Volo.Abp.Autofac" Version="abpVersion" />
-	<PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="abpVersion" />
-	<!--#if(enableDistributedLocking)-->
-	<PackageReference Include="Volo.Abp.DistributedLocking" Version="abpVersion" />
-	<!--#endif-->
-	<PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="abpVersion" />
-	<PackageReference Include="Volo.Abp.Swashbuckle" Version="abpVersion" />
+    <!--#endif-->
+    <PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" Version="abpVersion" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="abpVersion" />
+    <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="abpVersion" />
+    <!--#if(enableDistributedLocking)-->
+    <PackageReference Include="Volo.Abp.DistributedLocking" Version="abpVersion" />
+    <!--#endif-->
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="abpVersion" />
+    <PackageReference Include="Volo.Abp.Swashbuckle" Version="abpVersion" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\FluorineAbpProjectName.Application\FluorineAbpProjectName.Application.csproj" />
     <ProjectReference Include="..\FluorineAbpProjectName.EntityFrameworkCore\FluorineAbpProjectName.EntityFrameworkCore.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Logs\**" />
-    <Content Remove="Logs\**" />
-    <EmbeddedResource Remove="Logs\**" />
-    <None Remove="Logs\**" />
   </ItemGroup>
 
 </Project>

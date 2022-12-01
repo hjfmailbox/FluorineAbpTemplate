@@ -21,16 +21,16 @@ public class FluorineAbpProjectNameDbContextFactory : IDesignTimeDbContextFactor
 
         var configuration = BuildConfiguration();
 
-#if mySQL
-        var builder = new DbContextOptionsBuilder<FluorineAbpProjectNameDbContext>()
-            .UseMySql(configuration.GetConnectionString("Default"), MySqlServerVersion.LatestSupportedServerVersion);
-#endif
 #if sqlServer 
         var builder = new DbContextOptionsBuilder<FluorineAbpProjectNameDbContext>()
             .UseSqlServer(configuration.GetConnectionString("Default"));
-#endif
 
         return new FluorineAbpProjectNameDbContext(builder.Options);
+#else
+        var builder = new DbContextOptionsBuilder<FluorineAbpProjectNameDbContext>()
+            .UseMySql(configuration.GetConnectionString("Default"), MySqlServerVersion.LatestSupportedServerVersion);
+        return new FluorineAbpProjectNameDbContext(builder.Options);
+#endif
     }
 
     private static IConfigurationRoot BuildConfiguration()
