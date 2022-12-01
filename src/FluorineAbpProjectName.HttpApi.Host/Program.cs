@@ -40,6 +40,12 @@ public class Program
         }
         catch (Exception ex)
         {
+            // Ignore StopTheHostException when execute Add-Migration
+            string type = ex.GetType().Name;
+            if (type.Equals("StopTheHostException", StringComparison.Ordinal))
+            {
+                throw;
+            }
             Log.Fatal(ex, "Host terminated unexpectedly!");
             return 1;
         }
