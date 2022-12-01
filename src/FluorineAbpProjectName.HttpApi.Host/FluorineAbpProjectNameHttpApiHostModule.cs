@@ -31,6 +31,7 @@ using Volo.Abp.DistributedLocking;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.VirtualFileSystem;
+using FluorineAbpProjectName.Filters;
 
 namespace FluorineAbpProjectName;
 
@@ -125,6 +126,7 @@ public class FluorineAbpProjectNameHttpApiHostModule : AbpModule
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
                 options.HideAbpEndpoints();
+                options.DocumentFilter<RemoveAbpSchemasFilter>();
             });
     }
 
