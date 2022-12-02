@@ -1,8 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using FluorineAbpProjectName.MultiTenancy;
+#if enableAuditLogging
 using Volo.Abp.AuditLogging;
+#endif
+#if enableBackgroundJob
 using Volo.Abp.BackgroundJobs;
+#endif
 //using Volo.Abp.Emailing;
 //using Volo.Abp.FeatureManagement;
 //using Volo.Abp.Identity;
@@ -19,8 +23,12 @@ namespace FluorineAbpProjectName;
 
 
 [DependsOn(typeof(FluorineAbpProjectNameDomainSharedModule))]
+#if enableAuditLogging
 [DependsOn(typeof(AbpAuditLoggingDomainModule))]
+#endif
+#if enableBackgroundJob
 [DependsOn(typeof(AbpBackgroundJobsDomainModule))]
+#endif
 //[DependsOn(typeof(AbpFeatureManagementDomainModule))]
 //[DependsOn(typeof(AbpIdentityDomainModule))]
 //[DependsOn(typeof(AbpOpenIddictDomainModule))]

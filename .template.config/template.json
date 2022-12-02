@@ -64,6 +64,22 @@
 			"type": "computed",
 			"value": "(distributedLocking)"
 		},
+		"enableAuditLogging": {
+			"type": "parameter",
+			"datatype": "bool",
+			"defaultValue": "false",
+			"longName": "enable-audit-logging",
+			"shortName": "eal",
+			"description": "Enable audit logging or not"
+		},
+		"enableBackgroundJob": {
+			"type": "parameter",
+			"datatype": "bool",
+			"defaultValue": "false",
+			"longName": "enable-background-job",
+			"shortName": "ebj",
+			"description": "Enable background job or not"
+		}
 	},
 	"sources": [{
 		"source": "./",

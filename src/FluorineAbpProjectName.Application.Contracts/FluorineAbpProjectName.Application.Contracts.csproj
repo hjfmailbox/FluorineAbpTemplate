@@ -25,7 +25,7 @@
     <!--<PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="abpVersion" />-->
     <!--<PackageReference Include="Volo.Abp.SettingManagement.Application.Contracts" Version="abpVersion" />-->
   </ItemGroup>
-    
+
   <ItemGroup>
     <ProjectReference Include="..\FluorineAbpProjectName.Domain.Shared\FluorineAbpProjectName.Domain.Shared.csproj" />
   </ItemGroup>

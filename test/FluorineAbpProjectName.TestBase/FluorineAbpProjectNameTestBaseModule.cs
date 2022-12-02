@@ -2,7 +2,9 @@
 using Volo.Abp;
 using Volo.Abp.Authorization;
 using Volo.Abp.Autofac;
+#if enableBackgroundJob
 using Volo.Abp.BackgroundJobs;
+#endif
 using Volo.Abp.Data;
 using Volo.Abp.Modularity;
 using Volo.Abp.Threading;
@@ -24,10 +26,12 @@ public class FluorineAbpProjectNameTestBaseModule : AbpModule
 
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
+#if enableBackgroundJob
         Configure<AbpBackgroundJobOptions>(options =>
         {
             options.IsJobExecutionEnabled = false;
         });
+#endif
 
         context.Services.AddAlwaysAllowAuthorization();
     }

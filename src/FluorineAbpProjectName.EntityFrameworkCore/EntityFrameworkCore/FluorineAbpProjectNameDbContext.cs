@@ -1,6 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+#if enableAuditLogging
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
+#endif
+#if enableBackgroundJob
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
+#endif
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
@@ -25,7 +29,7 @@ public class FluorineAbpProjectNameDbContext :
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
-    #region Entities from the modules
+#region Entities from the modules
 
     /* Notice: We only implemented IIdentityDbContext and ITenantManagementDbContext
      * and replaced them for this DbContext. This allows you to perform JOIN
@@ -50,7 +54,7 @@ public class FluorineAbpProjectNameDbContext :
     public DbSet<Tenant> Tenants { get; set; }
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
 
-    #endregion
+#endregion
 
     public FluorineAbpProjectNameDbContext(DbContextOptions<FluorineAbpProjectNameDbContext> options)
         : base(options)
@@ -64,10 +68,14 @@ public class FluorineAbpProjectNameDbContext :
 
         /* Include modules to your migration db context */
 
-        //builder.ConfigurePermissionManagement();
-        //builder.ConfigureSettingManagement();
+//builder.ConfigurePermissionManagement();
+//builder.ConfigureSettingManagement();
+#if enableBackgroundJob
         builder.ConfigureBackgroundJobs();
+#endif
+#if enableAuditLogging
         builder.ConfigureAuditLogging();
+#endif
         //builder.ConfigureIdentity();
         //builder.ConfigureOpenIddict();
         //builder.ConfigureFeatureManagement();

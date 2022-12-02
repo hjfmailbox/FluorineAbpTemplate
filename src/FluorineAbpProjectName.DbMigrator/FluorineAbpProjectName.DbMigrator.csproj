@@ -30,8 +30,8 @@
   <ItemGroup>
     <None Remove="appsettings.json" />
     <Content Include="appsettings.json">
-     <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Remove="Logs\**" />
     <Content Remove="Logs\**" />

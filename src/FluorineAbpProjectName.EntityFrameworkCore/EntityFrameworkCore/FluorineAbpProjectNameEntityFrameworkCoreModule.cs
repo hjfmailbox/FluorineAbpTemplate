@@ -1,8 +1,12 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Uow;
+#if enableAuditLogging
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
+#endif
+#if enableBackgroundJob
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
+#endif
 using Volo.Abp.EntityFrameworkCore;
 //using Volo.Abp.EntityFrameworkCore.SqlServer;
 //using Volo.Abp.FeatureManagement.EntityFrameworkCore;
@@ -21,8 +25,12 @@ namespace FluorineAbpProjectName.EntityFrameworkCore;
 //[DependsOn(typeof(AbpPermissionManagementEntityFrameworkCoreModule))]
 //[DependsOn(typeof(AbpSettingManagementEntityFrameworkCoreModule))]
 //[DependsOn(typeof(AbpEntityFrameworkCoreSqlServerModule))]
+#if enableBackgroundJob
 [DependsOn(typeof(AbpBackgroundJobsEntityFrameworkCoreModule))]
+#endif
+#if enableAuditLogging
 [DependsOn(typeof(AbpAuditLoggingEntityFrameworkCoreModule))]
+#endif
 [DependsOn(typeof(AbpTenantManagementEntityFrameworkCoreModule))]
 //[DependsOn(typeof(AbpFeatureManagementEntityFrameworkCoreModule)
 public class FluorineAbpProjectNameEntityFrameworkCoreModule : AbpModule

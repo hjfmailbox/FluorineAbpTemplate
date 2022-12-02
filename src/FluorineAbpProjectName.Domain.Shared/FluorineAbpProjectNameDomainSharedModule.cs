@@ -1,6 +1,10 @@
 ﻿using FluorineAbpProjectName.Localization;
+#if enableAuditLogging
 using Volo.Abp.AuditLogging;
+#endif
+#if enableBackgroundJob
 using Volo.Abp.BackgroundJobs;
+#endif
 //using Volo.Abp.FeatureManagement;
 //using Volo.Abp.Identity;
 using Volo.Abp.Localization;
@@ -15,8 +19,12 @@ using Volo.Abp.VirtualFileSystem;
 
 namespace FluorineAbpProjectName;
 
+#if enableAuditLogging
 [DependsOn(typeof(AbpAuditLoggingDomainSharedModule))]
+#endif
+#if enableBackgroundJob
 [DependsOn(typeof(AbpBackgroundJobsDomainSharedModule))]
+#endif
 //[DependsOn(typeof(AbpFeatureManagementDomainSharedModule))]
 //[DependsOn(typeof(AbpIdentityDomainSharedModule))]
 //[DependsOn(typeof(AbpOpenIddictDomainSharedModule))]
