@@ -14,8 +14,10 @@ using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
 //using Volo.Abp.OpenIddict;
-//using Volo.Abp.PermissionManagement.Identity;
-//using Volo.Abp.PermissionManagement.OpenIddict;
+#if enablePermissionManagement
+using Volo.Abp.PermissionManagement.Identity;
+using Volo.Abp.PermissionManagement.OpenIddict;
+#endif
 //using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 
@@ -32,8 +34,10 @@ namespace FluorineAbpProjectName;
 //[DependsOn(typeof(AbpFeatureManagementDomainModule))]
 //[DependsOn(typeof(AbpIdentityDomainModule))]
 //[DependsOn(typeof(AbpOpenIddictDomainModule))]
-//[DependsOn(typeof(AbpPermissionManagementDomainOpenIddictModule))]
-//[DependsOn(typeof(AbpPermissionManagementDomainIdentityModule))]
+#if enablePermissionManagement
+[DependsOn(typeof(AbpPermissionManagementDomainOpenIddictModule))]
+[DependsOn(typeof(AbpPermissionManagementDomainIdentityModule))]
+#endif
 //[DependsOn(typeof(AbpSettingManagementDomainModule))]
 [DependsOn(typeof(AbpTenantManagementDomainModule))]
 //[DependsOn(typeof(AbpEmailingModule))]

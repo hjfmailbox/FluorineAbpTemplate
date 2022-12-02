@@ -12,7 +12,9 @@ using Volo.Abp.EntityFrameworkCore;
 //using Volo.Abp.Identity;
 //using Volo.Abp.Identity.EntityFrameworkCore;
 //using Volo.Abp.OpenIddict.EntityFrameworkCore;
-//using Volo.Abp.PermissionManagement.EntityFrameworkCore;
+#if enablePermissionManagement
+using Volo.Abp.PermissionManagement.EntityFrameworkCore;
+#endif
 //using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
@@ -68,7 +70,9 @@ public class FluorineAbpProjectNameDbContext :
 
         /* Include modules to your migration db context */
 
-//builder.ConfigurePermissionManagement();
+#if enablePermissionManagement
+        builder.ConfigurePermissionManagement();
+#endif
 //builder.ConfigureSettingManagement();
 #if enableBackgroundJob
         builder.ConfigureBackgroundJobs();

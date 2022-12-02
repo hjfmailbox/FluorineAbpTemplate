@@ -3,7 +3,9 @@
 //using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 using Volo.Abp.ObjectExtending;
-//using Volo.Abp.PermissionManagement;
+#if enablePermissionManagement
+using Volo.Abp.PermissionManagement;
+#endif
 //using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 
@@ -13,7 +15,9 @@ namespace FluorineAbpProjectName;
 //[DependsOn(typeof(AbpAccountApplicationContractsModule))]
 //[DependsOn(typeof(AbpFeatureManagementApplicationContractsModule))]
 //[DependsOn(typeof(AbpIdentityApplicationContractsModule))]
-//[DependsOn(typeof(AbpPermissionManagementApplicationContractsModule))]
+#if enablePermissionManagement
+[DependsOn(typeof(AbpPermissionManagementApplicationContractsModule))]
+#endif
 //[DependsOn(typeof(AbpSettingManagementApplicationContractsModule))]
 [DependsOn(typeof(AbpTenantManagementApplicationContractsModule))]
 [DependsOn(typeof(AbpObjectExtendingModule))]

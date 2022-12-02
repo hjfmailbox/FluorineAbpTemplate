@@ -7,29 +7,23 @@
     <RootNamespace>FluorineAbpProjectName</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
-    <PackageReference Include="Volo.Abp.Emailing" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.Identity.Domain" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.BackgroundJobs.Domain" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.AuditLogging.Domain" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.FeatureManagement.Domain" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.OpenIddict.Domain" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.OpenIddict" Version="6.0.1" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(Configuration)' != 'Debug'">
-    <!--<PackageReference Include="Volo.Abp.Emailing" Version="abpVersion" />-->
-    <!--<PackageReference Include="Volo.Abp.Identity.Domain" Version="abpVersion" />-->
-    <!--<PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="abpVersion" />-->
-    <PackageReference Condition="'$(enableBackgroundJob)'" Include="Volo.Abp.BackgroundJobs.Domain" Version="abpVersion" />
-    <PackageReference Condition="'$(enableAuditLogging)'" Include="Volo.Abp.AuditLogging.Domain" Version="abpVersion" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="abpVersion" />
-    <!--<PackageReference Include="Volo.Abp.FeatureManagement.Domain" Version="abpVersion" />-->
-    <!--<PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="abpVersion" />-->
-    <!--<PackageReference Include="Volo.Abp.OpenIddict.Domain" Version="abpVersion" />-->
-    <!--<PackageReference Include="Volo.Abp.PermissionManagement.Domain.OpenIddict" Version="abpVersion" />-->
+  <ItemGroup>
+    <!--<PackageReference Include="Volo.Abp.Emailing" Version="$(abpVersion)" />-->
+    <!--<PackageReference Include="Volo.Abp.Identity.Domain" Version="$(abpVersion)" />-->
+    <!--#if(enableAuditLogging)-->
+    <PackageReference Include="Volo.Abp.AuditLogging.Domain.Shared" Version="$(abpVersion)" />
+    <!--#endif-->
+    <!--#if(enableBackgroundJob)-->
+    <PackageReference Include="Volo.Abp.BackgroundJobs.Domain.Shared" Version="$(abpVersion)" />
+    <!--#endif-->
+    <!--#if(enablePermissionManagement)-->
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="$(abpVersion)" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.OpenIddict" Version="$(abpVersion)" />
+    <!--#endif-->
+    <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="$(abpVersion)" />
+    <!--<PackageReference Include="Volo.Abp.FeatureManagement.Domain" Version="$(abpVersion)" />-->
+    <!--<PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="$(abpVersion)" />-->
+    <!--<PackageReference Include="Volo.Abp.OpenIddict.Domain" Version="$(abpVersion)" />-->
   </ItemGroup>
 
   <ItemGroup>

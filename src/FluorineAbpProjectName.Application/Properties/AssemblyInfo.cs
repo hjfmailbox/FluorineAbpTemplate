@@ -1,2 +1,2 @@
 ﻿using System.Runtime.CompilerServices;
-[assembly:InternalsVisibleToAttribute("FluorineAbpProjectName.Application.Tests")]
+[assembly: InternalsVisibleToAttribute("FluorineAbpProjectName.Application.Tests")]

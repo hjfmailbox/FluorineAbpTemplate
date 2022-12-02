@@ -66,7 +66,10 @@ public class FluorineAbpProjectNameHttpApiHostModule : AbpModule
 
     private void ConfigureCache(IConfiguration configuration)
     {
-        Configure<AbpDistributedCacheOptions>(options => { options.KeyPrefix = "FluorineAbpProjectName:"; });
+        Configure<AbpDistributedCacheOptions>(options =>
+        {
+            options.KeyPrefix = "FluorineAbpProjectName:";
+        });
     }
 
     private void ConfigureVirtualFileSystem(ServiceConfigurationContext context)
@@ -144,9 +147,7 @@ public class FluorineAbpProjectNameHttpApiHostModule : AbpModule
     }
 
 #if enableDistributedLocking
-    private void ConfigureDistributedLocking(
-        ServiceConfigurationContext context,
-        IConfiguration configuration)
+    private void ConfigureDistributedLocking(ServiceConfigurationContext context, IConfiguration configuration)
     {
         context.Services.AddSingleton<IDistributedLockProvider>(sp =>
         {
@@ -155,6 +156,7 @@ public class FluorineAbpProjectNameHttpApiHostModule : AbpModule
             return new RedisDistributedSynchronizationProvider(connection.GetDatabase());
         });
     }
+    
 #endif
     private void ConfigureCors(ServiceConfigurationContext context, IConfiguration configuration)
     {

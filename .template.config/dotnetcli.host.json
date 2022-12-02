@@ -4,17 +4,29 @@
       "longName": "abpversion",
       "shortName": "abpversion"
     },
-	"dataBase": {
+    "dataBase": {
       "longName": "dbms",
       "shortName": "dbms"
     },
-	"connectionString": {
+    "connectionString": {
       "longName": "connection-string",
       "shortName": "cs"
     },
-	"distributedLocking": {
-      "longName": "distributed-locking",
-      "shortName": "dl"
-	}
+    "enableDistributedLocking": {
+      "longName": "enable-distributed-locking",
+      "shortName": "edl"
+    },
+    "enableAuditLogging": {
+      "longName": "enable-audit-logging",
+      "shortName": "eal"
+    },
+    "enableBackgroundJob": {
+      "longName": "enable-background-job",
+      "shortName": "ejb"
+    },
+    "enablePermissionManagement": {
+      "longName": "enable-permission-management",
+      "shortName": "epm"
+    }
   }
 }

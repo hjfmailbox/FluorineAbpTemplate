@@ -8,25 +8,21 @@
     <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
-    <PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.BackgroundJobs.Domain.Shared" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.AuditLogging.Domain.Shared" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Domain.Shared" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.SettingManagement.Domain.Shared" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.OpenIddict.Domain.Shared" Version="6.0.1" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(Configuration)' != 'Debug'">
-    <!--<PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="abpVersion" />-->
-    <PackageReference Condition="'$(enableBackgroundJob)'" Include="Volo.Abp.BackgroundJobs.Domain.Shared" Version="abpVersion" />
-    <PackageReference Condition="'$(enableAuditLogging)'" Include="Volo.Abp.AuditLogging.Domain.Shared" Version="abpVersion" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Domain.Shared" Version="abpVersion" />
-    <!--<PackageReference Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="abpVersion" />-->
-    <!--<PackageReference Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="abpVersion" />-->
-    <!--<PackageReference Include="Volo.Abp.SettingManagement.Domain.Shared" Version="abpVersion" />-->
-    <!--<PackageReference Include="Volo.Abp.OpenIddict.Domain.Shared" Version="abpVersion" />-->
+  <ItemGroup>
+    <!--<PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="$(abpVersion)" />-->
+    <!--#if(enableBackgroundJob)-->
+    <PackageReference Include="Volo.Abp.BackgroundJobs.Domain.Shared" Version="$(abpVersion)" />
+    <!--#endif-->
+    <!--#if(enableAuditLogging)-->
+    <PackageReference Include="Volo.Abp.AuditLogging.Domain.Shared" Version="$(abpVersion)" />
+    <!--#endif-->
+    <PackageReference Include="Volo.Abp.TenantManagement.Domain.Shared" Version="$(abpVersion)" />
+    <!--<PackageReference Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="$(abpVersion)" />-->
+    <!--#if(enablePermissionManagement)-->
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="$(abpVersion)" />
+    <!--#endif-->
+    <!--<PackageReference Include="Volo.Abp.SettingManagement.Domain.Shared" Version="$(abpVersion)" />-->
+    <!--<PackageReference Include="Volo.Abp.OpenIddict.Domain.Shared" Version="$(abpVersion)" />-->
   </ItemGroup>
 
   <ItemGroup>

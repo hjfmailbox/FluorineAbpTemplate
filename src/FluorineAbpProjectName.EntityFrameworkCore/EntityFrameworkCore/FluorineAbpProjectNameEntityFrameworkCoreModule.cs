@@ -13,7 +13,9 @@ using Volo.Abp.EntityFrameworkCore;
 //using Volo.Abp.Identity.EntityFrameworkCore;
 using Volo.Abp.Modularity;
 //using Volo.Abp.OpenIddict.EntityFrameworkCore;
-//using Volo.Abp.PermissionManagement.EntityFrameworkCore;
+#if enablePermissionManagement
+using Volo.Abp.PermissionManagement.EntityFrameworkCore;
+#endif
 //using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 
@@ -22,7 +24,9 @@ namespace FluorineAbpProjectName.EntityFrameworkCore;
 [DependsOn(typeof(FluorineAbpProjectNameDomainModule))]
 //[DependsOn(typeof(AbpIdentityEntityFrameworkCoreModule))]
 //[DependsOn(typeof(AbpOpenIddictEntityFrameworkCoreModule))]
-//[DependsOn(typeof(AbpPermissionManagementEntityFrameworkCoreModule))]
+#if enablePermissionManagement
+[DependsOn(typeof(AbpPermissionManagementEntityFrameworkCoreModule))]
+#endif
 //[DependsOn(typeof(AbpSettingManagementEntityFrameworkCoreModule))]
 //[DependsOn(typeof(AbpEntityFrameworkCoreSqlServerModule))]
 #if enableBackgroundJob

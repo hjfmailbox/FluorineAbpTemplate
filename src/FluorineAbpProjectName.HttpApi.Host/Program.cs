@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,7 +22,19 @@ public class Program
             .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
             .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning)
             .Enrich.FromLogContext()
-            .WriteTo.Async(c => c.File("Logs/logs.txt"))
+            .WriteTo.Logger(x => x.Filter.ByIncludingOnly(y => y.Level == LogEventLevel.Verbose)
+            .WriteTo.File(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"Logs/{DateTime.Now:yyyy-MM}/Verbose-.log"), rollingInterval: RollingInterval.Day))
+            .WriteTo.Logger(x => x.Filter.ByIncludingOnly(y => y.Level == LogEventLevel.Debug)
+            .WriteTo.File(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"Logs/{DateTime.Now:yyyy-MM}/Debug-.log"), rollingInterval: RollingInterval.Day))
+            .WriteTo.Logger(x => x.Filter.ByIncludingOnly(y => y.Level == LogEventLevel.Information)
+            .WriteTo.File(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"Logs/{DateTime.Now:yyyy-MM}/Information-.log"), rollingInterval: RollingInterval.Day))
+            .WriteTo.Logger(x => x.Filter.ByIncludingOnly(y => y.Level == LogEventLevel.Warning)
+            .WriteTo.File(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"Logs/{DateTime.Now:yyyy-MM}/Warning-.log"), rollingInterval: RollingInterval.Day))
+            .WriteTo.Logger(x => x.Filter.ByIncludingOnly(y => y.Level == LogEventLevel.Error)
+            .WriteTo.File(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"Logs/{DateTime.Now:yyyy-MM}/Error-.log"), rollingInterval: RollingInterval.Day))
+            .WriteTo.Logger(x => x.Filter.ByIncludingOnly(y => y.Level == LogEventLevel.Fatal)
+            .WriteTo.File(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"Logs/{DateTime.Now:yyyy-MM}/Fatal-.log"), rollingInterval: RollingInterval.Day))
+            .WriteTo.Async(c => c.File(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"Logs/{DateTime.Now:yyyy-MM}/All-.log"), rollingInterval: RollingInterval.Day))
             .WriteTo.Async(c => c.Console())
             .CreateLogger();
 

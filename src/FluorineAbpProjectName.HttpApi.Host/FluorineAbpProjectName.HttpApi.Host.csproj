@@ -18,28 +18,17 @@
     <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="6.0.11" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
-    <PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.Autofac" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.DistributedLocking" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="6.0.1" />
-    <PackageReference Include="Volo.Abp.Swashbuckle" Version="6.0.1" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(Configuration)' != 'Debug'">
     <!--#if(enableDistributedLocking)-->
     <PackageReference Include="DistributedLock.Redis" Version="1.0.2" />
     <!--#endif-->
-    <PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" Version="abpVersion" />
-    <PackageReference Include="Volo.Abp.Autofac" Version="abpVersion" />
-    <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="abpVersion" />
+    <PackageReference Include="Volo.Abp.AspNetCore.MultiTenancy" Version="$(abpVersion)" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="$(abpVersion)" />
+    <PackageReference Include="Volo.Abp.Caching.StackExchangeRedis" Version="$(abpVersion)" />
     <!--#if(enableDistributedLocking)-->
-    <PackageReference Include="Volo.Abp.DistributedLocking" Version="abpVersion" />
+    <PackageReference Include="Volo.Abp.DistributedLocking" Version="$(abpVersion)" />
     <!--#endif-->
-    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="abpVersion" />
-    <PackageReference Include="Volo.Abp.Swashbuckle" Version="abpVersion" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="$(abpVersion)" />
+    <PackageReference Include="Volo.Abp.Swashbuckle" Version="$(abpVersion)" />
   </ItemGroup>
 
   <ItemGroup>
